@@ -28,7 +28,7 @@ const AddAlbum = () => {
       formData.append("bgColour", colour);
 
       const response = await axios.post(`${url}/api/album/add`, formData);
-
+      console.log(response)
       if (response.data.success) {
         toast.success("Album Added");
         setName("");
@@ -36,6 +36,7 @@ const AddAlbum = () => {
         setImage(false);
       }
       else {
+        
         toast.error("Something went wrong");
       }
 
@@ -70,7 +71,7 @@ const AddAlbum = () => {
 
       <div className="flex flex-col gap-2.5">
         <p>Album name</p>
-        <input className='bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[max(40vw,250px)]' onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder='Type here' />
+        <input className='bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[max(40vw,250px)]' onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder='Eg:Ultraviolence' />
       </div>
 
       <div className="flex flex-col gap-2.5">
